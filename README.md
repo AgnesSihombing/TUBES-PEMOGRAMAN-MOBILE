@@ -24,7 +24,6 @@ Menghitung total harga pesanan
 Teknologi
 Kotlin
 Android Studio
-Jetpack Compose
 Git & GitHub
 Tujuan
 
