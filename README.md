@@ -1,6 +1,4 @@
-# TUBES-PEMOGRAMAN-MOBILE
-
-FNB App
+# FNB APP
 
 FNB App merupakan aplikasi mobile Food and Beverage yang dibuat untuk memudahkan pengguna dalam melihat menu makanan dan minuman serta melakukan pemesanan.
 
