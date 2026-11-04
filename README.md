@@ -105,10 +105,10 @@ Admin merupakan pengguna yang bertanggung jawab mengelola dan menindaklanjuti pe
 | Komponen | Teknologi |
 | :--- | :--- |
 | 📱 **Platform** | Android |
-| 💻 **Bahasa Pemrograman** | Kotlin / Java |
+| 💻 **Bahasa Pemrograman** | Kotlin  |
 | 🛠️ **IDE** | Android Studio |
 | 🎨 **UI Framework** | XML / Jetpack Compose |
-| 🗄️ **Database** | Firebase / SQLite / Room |
+| 🗄️ **Database** | Firebase |
 | 🌿 **Version Control** | Git & GitHub |
 
 ---
