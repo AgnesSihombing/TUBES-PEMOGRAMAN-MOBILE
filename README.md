@@ -1,4 +1,4 @@
-# LaporKampus
+# SIGAP
 
 ### Aplikasi Mobile Pengaduan Fasilitas Kampus 
 
@@ -6,7 +6,7 @@
 
 ##  1. Deskripsi Proyek
 
-**LaporKampus** merupakan aplikasi mobile berbasis Android yang dirancang untuk memfasilitasi mahasiswa dalam menyampaikan pengaduan terkait fasilitas kampus yang mengalami kerusakan atau gangguan.
+**SIGAP** merupakan aplikasi mobile berbasis Android yang dirancang untuk memfasilitasi mahasiswa dalam menyampaikan pengaduan terkait fasilitas kampus yang mengalami kerusakan atau gangguan.
 
 Aplikasi ini memiliki dua jenis pengguna utama, yaitu **Mahasiswa (User)** dan **Admin**, dengan hak akses serta tanggung jawab yang berbeda. Mahasiswa dapat mengirimkan serta memantau pengaduan, sedangkan admin bertugas mengelola laporan, memperbarui status, dan memberikan tanggapan terhadap pengaduan.
 
@@ -16,7 +16,7 @@ Aplikasi ini memiliki dua jenis pengguna utama, yaitu **Mahasiswa (User)** dan *
 
 Fasilitas kampus memiliki peran yang sangat penting dalam menunjang kegiatan akademik sehari-hari. Namun, kerusakan fasilitas sering kali tidak terdokumentasi dengan baik karena penyampaian laporan masih dilakukan secara langsung atau melalui komunikasi informal.
 
-LaporKampus dikembangkan sebagai solusi digital yang menyediakan sistem pengaduan terpusat agar proses pelaporan, pengelolaan, dan pemantauan pengaduan menjadi jauh lebih terstruktur dan transparan.
+SIGAP dikembangkan sebagai solusi digital yang menyediakan sistem pengaduan terpusat agar proses pelaporan, pengelolaan, dan pemantauan pengaduan menjadi jauh lebih terstruktur dan transparan.
 
 ---
 
@@ -115,11 +115,11 @@ Admin merupakan pengguna yang bertanggung jawab mengelola dan menindaklanjuti pe
 
 ##  9. Pengembang
 
-- **Nama Proyek:** LaporKampus
+- **Nama Proyek:** SIGAP
 - **Kategori:** Mobile Application
 - **Platform:** Android
 - **Tahun:** 2026
 
 ---
 
-> *“LaporKampus – Sampaikan Pengaduan, Wujudkan Kampus Lebih Baik.”*
+> *“SIGAP – Sampaikan Pengaduan, Wujudkan Kampus Lebih Baik.”*
