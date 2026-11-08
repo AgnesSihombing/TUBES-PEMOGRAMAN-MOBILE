@@ -6,7 +6,7 @@
 
 ##  1. Deskripsi Proyek
 
-**SIGAP** merupakan aplikasi mobile berbasis Android yang dirancang untuk memfasilitasi mahasiswa dalam menyampaikan pengaduan terkait fasilitas kampus yang mengalami kerusakan atau gangguan.
+**SIGAP** (Sistem Informasi Gangguan dan Aduan Prasarana) merupakan aplikasi mobile berbasis Android yang dirancang untuk memfasilitasi mahasiswa dalam menyampaikan pengaduan terkait fasilitas kampus yang mengalami kerusakan atau gangguan.
 
 Aplikasi ini memiliki dua jenis pengguna utama, yaitu **Mahasiswa (User)** dan **Admin**, dengan hak akses serta tanggung jawab yang berbeda. Mahasiswa dapat mengirimkan serta memantau pengaduan, sedangkan admin bertugas mengelola laporan, memperbarui status, dan memberikan tanggapan terhadap pengaduan.
 
