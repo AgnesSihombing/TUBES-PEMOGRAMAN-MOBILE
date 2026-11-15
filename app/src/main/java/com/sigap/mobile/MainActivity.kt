@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import com.sigap.mobile.ui.admin.dashboard.DashboardScreen
 import com.sigap.mobile.ui.admin.laporan.LaporanListScreen
 import com.sigap.mobile.ui.admin.login.AdminLoginScreen
+import com.sigap.mobile.ui.admin.dashboard.DashboardScreen
 import com.sigap.mobile.ui.theme.SIGAPTheme
 
 class MainActivity : ComponentActivity() {
@@ -16,7 +17,7 @@ class MainActivity : ComponentActivity() {
         // setContent = titik awal UI Compose
         setContent {
             SIGAPTheme {
-                AdminLoginScreen()
+                DashboardScreen()
             }
         }
     }
