@@ -2,10 +2,21 @@ package com.sigap.mobile.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+// Semua warna aplikasi dikumpulkan di satu file agar konsisten dan mudah diubah.
+val SigapTeal = Color(0xFF0F8A78)
+val SigapTealDark = Color(0xFF0B6E60)
+val SigapTealLight = Color(0xFFE3F4F1)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val SigapBackground = Color(0xFFF8FAFB)
+val SigapBorder = Color(0xFFD9E1E5)
+val SigapTextSecondary = Color(0xFF6B7A83)
+
+// Warna status laporan: Bg = latar chip, Fg = warna teks
+val StatusMenungguBg = Color(0xFFFFF1D6)
+val StatusMenungguFg = Color(0xFFD98B00)
+val StatusDiprosesBg = Color(0xFFDCEEFB)
+val StatusDiprosesFg = Color(0xFF2B8AD6)
+val StatusSelesaiBg = Color(0xFFDDF3E4)
+val StatusSelesaiFg = Color(0xFF2E9E5B)
+val StatusDitolakBg = Color(0xFFFDE2E2)
+val StatusDitolakFg = Color(0xFFE5484D)
