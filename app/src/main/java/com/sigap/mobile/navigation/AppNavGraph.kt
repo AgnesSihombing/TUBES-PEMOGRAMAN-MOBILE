@@ -30,8 +30,13 @@ import com.sigap.mobile.ui.admin.pengguna.DetailPenggunaScreen
 import com.sigap.mobile.ui.admin.pengguna.PenggunaListScreen
 import com.sigap.mobile.ui.admin.pengguna.TambahPenggunaScreen
 import com.sigap.mobile.ui.admin.pengguna.dummyPengguna
+import com.sigap.mobile.ui.admin.profil.ProfilScreen
+import com.sigap.mobile.ui.admin.profil.PusatBantuanScreen
+import com.sigap.mobile.ui.admin.profil.TentangScreen
+import com.sigap.mobile.ui.admin.profil.UbahProfilScreen
+import com.sigap.mobile.ui.admin.profil.UbahSandiScreen
+import com.sigap.mobile.ui.admin.profil.NotifikasiScreen
 
-// Semua alamat layar dikumpulkan di sini agar tidak salah ketik
 object Routes {
     const val LOGIN = "login"
     const val DASHBOARD = "dashboard"
@@ -43,6 +48,11 @@ object Routes {
     const val STATUS = "laporan/{id}/status"
     const val TAMBAH_PENGGUNA = "pengguna/tambah"
     const val DETAIL_PENGGUNA = "pengguna/detail/{id}"
+    const val PROFIL_UBAH = "profil/ubah"
+    const val PROFIL_SANDI = "profil/sandi"
+    const val PROFIL_NOTIF = "profil/notifikasi"
+    const val PROFIL_BANTUAN = "profil/bantuan"
+    const val PROFIL_TENTANG = "profil/tentang"
 
     // ID mengandung '#', jadi harus di-encode sebelum masuk ke alamat
     fun detail(id: String) = "laporan/${Uri.encode(id)}"
@@ -107,13 +117,8 @@ fun AppNavGraph() {
             arguments = listOf(navArgument("id") { type = NavType.StringType })
         ) { entry ->
             val id = entry.arguments?.getString("id")
-            // Cari laporan berdasarkan ID. Nanti diganti ambil dari Firebase.
+            // Cari laporan berdasarkan ID.
             val laporan = dummyLaporan.firstOrNull { it.id == id } ?: dummyLaporan.first()
-            DetailLaporanScreen(
-                laporan = laporan,
-                onBack = { navController.popBackStack() },
-                onTabSelected = { navController.navigateTab(it) }
-            )
             DetailLaporanScreen(
                 laporan = laporan,
                 onBack = { navController.popBackStack() },
@@ -187,27 +192,54 @@ fun AppNavGraph() {
         }
 
         composable(Routes.PROFIL) {
-            PlaceholderScreen("Profil Admin", AdminTab.Profil) { navController.navigateTab(it) }
+            ProfilScreen(
+                onUbahProfil = { navController.navigate(Routes.PROFIL_UBAH) },
+                onUbahSandi = { navController.navigate(Routes.PROFIL_SANDI) },
+                onNotifikasi = { navController.navigate(Routes.PROFIL_NOTIF) },
+                onBantuan = { navController.navigate(Routes.PROFIL_BANTUAN) },
+                onTentang = { navController.navigate(Routes.PROFIL_TENTANG) },
+                onTabSelected = { navController.navigateTab(it) },
+                onKeluar = {
+                    navController.navigate(Routes.LOGIN) {
+                        popUpTo(Routes.DASHBOARD) { inclusive = true }
+                    }
+                }
+            )
+        }
+
+        composable(Routes.PROFIL_UBAH) {
+            UbahProfilScreen(
+                onBack = { navController.popBackStack() },
+                onSimpan = { navController.popBackStack() },
+                onTabSelected = { navController.navigateTab(it) }
+            )
+        }
+        composable(Routes.PROFIL_SANDI) {
+            UbahSandiScreen(
+                onBack = { navController.popBackStack() },
+                onSimpan = { _, _ -> navController.popBackStack() },
+                onTabSelected = { navController.navigateTab(it) }
+            )
+        }
+        composable(Routes.PROFIL_NOTIF) {
+            NotifikasiScreen(
+                onBack = { navController.popBackStack() },
+                onTabSelected = { navController.navigateTab(it) }
+            )
+        }
+        composable(Routes.PROFIL_BANTUAN) {
+            PusatBantuanScreen(
+                onBack = { navController.popBackStack() },
+                onTabSelected = { navController.navigateTab(it) }
+            )
+        }
+        composable(Routes.PROFIL_TENTANG) {
+            TentangScreen(
+                onBack = { navController.popBackStack() },
+                onTabSelected = { navController.navigateTab(it) }
+            )
         }
     }
 }
 
-// Layar sementara untuk tab yang belum dibuat
-@Composable
-private fun PlaceholderScreen(
-    title: String,
-    tab: AdminTab,
-    onTabSelected: (AdminTab) -> Unit
-) {
-    Scaffold(
-        containerColor = MaterialTheme.colorScheme.background,
-        bottomBar = { AdminBottomBar(selected = tab, onSelect = onTabSelected) }
-    ) { innerPadding ->
-        Box(
-            modifier = Modifier.fillMaxSize().padding(innerPadding),
-            contentAlignment = Alignment.Center
-        ) {
-            Text("$title (segera hadir)")
-        }
-    }
-}
+
