@@ -46,7 +46,7 @@ import com.sigap.mobile.ui.theme.SIGAPTheme
 import com.sigap.mobile.ui.theme.SigapTextSecondary
 
 // Data dummy. Nanti diganti data dari Firebase.
-private val dummyLaporan = listOf(
+val dummyLaporan = listOf(
     Laporan("#LP-20261108-001", "AC tidak dingin", "Gedung A, Ruang A201", LaporanStatus.MenungguVerifikasi),
     Laporan("#LP-20261105-004", "Lampu mati", "Gedung B, Ruang B103", LaporanStatus.Diproses),
     Laporan("#LP-20261103-007", "Ada kucing", "Gedung C, Ruang C301", LaporanStatus.Ditolak),
