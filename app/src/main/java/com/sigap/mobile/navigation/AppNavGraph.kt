@@ -26,6 +26,10 @@ import com.sigap.mobile.ui.admin.laporan.dummyLaporan
 import com.sigap.mobile.ui.admin.login.AdminLoginScreen
 import com.sigap.mobile.ui.components.AdminBottomBar
 import com.sigap.mobile.ui.components.AdminTab
+import com.sigap.mobile.ui.admin.pengguna.DetailPenggunaScreen
+import com.sigap.mobile.ui.admin.pengguna.PenggunaListScreen
+import com.sigap.mobile.ui.admin.pengguna.TambahPenggunaScreen
+import com.sigap.mobile.ui.admin.pengguna.dummyPengguna
 
 // Semua alamat layar dikumpulkan di sini agar tidak salah ketik
 object Routes {
@@ -37,11 +41,14 @@ object Routes {
     const val PROFIL = "profil"
     const val TUGASKAN = "laporan/{id}/tugaskan"
     const val STATUS = "laporan/{id}/status"
+    const val TAMBAH_PENGGUNA = "pengguna/tambah"
+    const val DETAIL_PENGGUNA = "pengguna/detail/{id}"
 
     // ID mengandung '#', jadi harus di-encode sebelum masuk ke alamat
     fun detail(id: String) = "laporan/${Uri.encode(id)}"
     fun tugaskan(id: String) = "laporan/${Uri.encode(id)}/tugaskan"
     fun status(id: String) = "laporan/${Uri.encode(id)}/status"
+    fun detailPengguna(id: String) = "pengguna/detail/${Uri.encode(id)}"
 }
 
 private fun AdminTab.route() = when (this) {
@@ -150,7 +157,33 @@ fun AppNavGraph() {
         }
 
         composable(Routes.PENGGUNA) {
-            PlaceholderScreen("Kelola Pengguna", AdminTab.Pengguna) { navController.navigateTab(it) }
+            PenggunaListScreen(
+                onTabSelected = { navController.navigateTab(it) },
+                onTambahClick = { navController.navigate(Routes.TAMBAH_PENGGUNA) },
+                onPenggunaClick = { navController.navigate(Routes.detailPengguna(it.id)) }
+            )
+        }
+
+        composable(Routes.TAMBAH_PENGGUNA) {
+            TambahPenggunaScreen(
+                onBack = { navController.popBackStack() },
+                // Nanti: simpan ke Firebase. Sekarang kembali ke daftar.
+                onSimpan = { _, _, _, _, _ -> navController.popBackStack() },
+                onTabSelected = { navController.navigateTab(it) }
+            )
+        }
+
+        composable(
+            route = Routes.DETAIL_PENGGUNA,
+            arguments = listOf(navArgument("id") { type = NavType.StringType })
+        ) { entry ->
+            val id = entry.arguments?.getString("id")
+            val pengguna = dummyPengguna.firstOrNull { it.id == id } ?: dummyPengguna.first()
+            DetailPenggunaScreen(
+                pengguna = pengguna,
+                onBack = { navController.popBackStack() },
+                onTabSelected = { navController.navigateTab(it) }
+            )
         }
 
         composable(Routes.PROFIL) {
