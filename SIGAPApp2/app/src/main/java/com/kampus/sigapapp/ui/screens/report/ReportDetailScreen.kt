@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kampus.sigapapp.R
 import com.kampus.sigapapp.data.DummyData
+import com.kampus.sigapapp.data.ReportStatus
 import com.kampus.sigapapp.navigation.Routes
 import com.kampus.sigapapp.ui.components.Chip
 import com.kampus.sigapapp.ui.components.MainScaffold
@@ -34,7 +35,7 @@ import com.kampus.sigapapp.ui.theme.*
 fun ReportDetailScreen(
     reportId: String,
     onBack: () -> Unit,
-    onHistory: () -> Unit,
+    onFeedback: () -> Unit,
     onNavigate: (String) -> Unit
 ) {
     val report = DummyData.findReport(reportId)
@@ -161,12 +162,14 @@ fun ReportDetailScreen(
                         contentScale = ContentScale.Crop
                     )
                 }
-                Spacer(Modifier.height(28.dp))
-                OutlineButton(
-                    text = "Riwayat Penanganan",
-                    onClick = onHistory,
-                    modifier = Modifier.fillMaxWidth()
-                )
+                if (report.status == ReportStatus.DONE) {
+                    Spacer(Modifier.height(28.dp))
+                    OutlineButton(
+                        text = "Beri Feedback",
+                        onClick = onFeedback,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
                 Spacer(Modifier.height(24.dp))
             }
         }
